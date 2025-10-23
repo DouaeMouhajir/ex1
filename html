@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>QCM</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <p>Répondez aux questions suivantes :</p>
+    <hr>
+
+    <input type="button" value="Initialiser" onclick="initialiserQCM()"><br><br>
+
+    <form id="QCM">
+        <p><b>1 - Quelle est la capitale de l'Australie ?</b></p>
+        <input type="radio" name="Q1" value="Sydney"> Sydney <br>
+        <input type="radio" name="Q1" value="Melbourne"> Melbourne<br>
+        <input type="radio" name="Q1" value="Canberra"> Canberra<br><br>
+
+        <p><b>2 - Qui a écrit "Les Misérables" ?</b></p>
+        <input type="radio" name="Q2" value="Victor Hugo"> Victor Hugo <br>
+        <input type="radio" name="Q2" value="Gustave Flaubert"> Gustave Flaubert <br>
+        <input type="radio" name="Q2" value="Émile Zola"> Émile Zola <br><br>
+
+        <p><b>3 - Quelle est la planète la plus grande de notre système solaire ?</b></p>
+        <input type="checkbox" name="Q3" value="Saturne"> Saturne<br>
+        <input type="checkbox" name="Q3" value="Jupiter"> Jupiter<br>
+        <input type="checkbox" name="Q3" value="Mars"> Mars<br><br>
+
+        <p><b>4 - Quel gaz les plantes absorbent-elles lors de la photosynthèse ?</b></p>
+        <input type="checkbox" name="Q4" value="L'oxygène (O₂)"> L'oxygène (O₂)<br>
+        <input type="checkbox" name="Q4" value="Le diazote (N₂)"> Le diazote (N₂)<br>
+        <input type="checkbox" name="Q4" value="Le dioxyde de carbone (CO₂)"> Le dioxyde de carbone (CO₂)<br><br>
+
+        <p><b>5 - Lequel de ces pays n'est pas considéré comme un "pays nordique" ?</b></p>
+        <input type="checkbox" name="Q5" value="Le Danemark"> Le Danemark<br>
+        <input type="checkbox" name="Q5" value="La Suède"> La Suède<br>
+        <input type="checkbox" name="Q5" value="Les Pays-Bas"> Les Pays-Bas<br><br>
+    </form>
+
+    <hr>
+    <input type="button" value="Résultat du test" onclick="afficherResultat()">
+    <input type="button" value="Correction complète" onclick="afficherCorrection()">
+</body>
+</html>
