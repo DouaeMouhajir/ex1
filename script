@@ -1,0 +1,56 @@
+<script>
+     const Correction = {
+        Q1: ['Canberra'],
+        Q2: ['Victor Hugo'],
+        Q3: ['Jupiter'],
+        Q4: ["Le dioxyde de carbone (CO₂)"],
+        Q5: ['Les Pays-Bas']
+    };
+
+   
+    function initialiserQCM() {
+        document.getElementById("QCM").reset();
+    }
+
+  
+    function getReponsesUtilisateur() {
+        const reponses = {};
+        for (let i = 1; i <= 5; i++) {
+            const elements = document.getElementsByName("Q" + i);
+            reponses["Q" + i] = [];
+            for (let el of elements) {
+                if (el.checked) reponses["Q" + i].push(el.value.trim());
+            }
+        }
+        return reponses;
+    }
+
+    function afficherResultat() {
+        const userReponses = getReponsesUtilisateur();
+        let contenu = "<h2>Résultat du test</h2><ul>";
+        for (let i = 1; i <= 5; i++) {
+            const correct = Correction["Q" + i];
+            const user = userReponses["Q" + i];
+            const estCorrect = JSON.stringify(correct.sort()) === JSON.stringify(user.sort());
+            contenu += `<li>Question ${i} : <b>${estCorrect ? "✅ correcte" : "❌ incorrecte"}</b></li>`;
+        }
+        contenu += "</ul>";
+        const fenetre = window.open("", "Résultat", "width=400,height=300");
+        fenetre.document.write(contenu);
+    }
+
+ 
+    function afficherCorrection() {
+        let contenu = "<h2>Corrigé du QCM</h2>";
+        contenu += "<ol>";
+        contenu += "<li>Quelle est la capitale de l'Australie ?<br>➡ <u style='color:green'>Canberra</u></li><br>";
+        contenu += "<li>Qui a écrit 'Les Misérables' ?<br>➡ <u style='color:green'>Victor Hugo</u></li><br>";
+        contenu += "<li>Quelle est la planète la plus grande de notre système solaire ?<br>➡ <u style='color:green'>Jupiter</u></li><br>";
+        contenu += "<li>Quel gaz les plantes absorbent-elles lors de la photosynthèse ?<br>➡ <u style='color:green'>Le dioxyde de carbone (CO₂)</u></li><br>";
+        contenu += "<li>Lequel de ces pays n'est pas considéré comme un 'pays nordique' ?<br>➡ <u style='color:green'>Les Pays-Bas</u></li>";
+        contenu += "</ol>";
+
+        const fenetre = window.open("", "Correction", "width=600,height=400,scrollbars=yes");
+        fenetre.document.write(contenu);
+    }
+</script>
